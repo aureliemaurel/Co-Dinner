@@ -3,7 +3,7 @@ package forms;
 import dao.DAOFactory;
 import dao.UserDAO;
 import forms.FormChecker;
-import fr.ldnr.beans.User;
+import bean.User;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;

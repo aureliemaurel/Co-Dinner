@@ -1,10 +1,15 @@
 package bean;
 
+import dao.Identifiable;
+import java.io.Serializable;
+
 /**
  *
  * @author stag
  */
-public class User {
+public class User implements Serializable, Identifiable {
+    
+    private static final long serialVersionUID = 1L;
     
     private Long id;
     private String email;
