@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/home.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/Connect.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/ChooseEvent.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/bean/Event.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/chooseEvent.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/connect.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/register.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/Home.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/deconnect.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/seeEvent.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/FormParticipant.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/SeeEvent.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/bean/User.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/index.html</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/statutUser.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/CreateEvent.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/StatutUser.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/bean/Participant.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/formParticipant.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/forms/ConnectFormChecker.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/Register.java</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/web/WEB-INF/createEvent.jsp</file>
+            <file>file:/home/stag/Desktop/Co-Dinner/src/java/servlet/Deconnect.java</file>
+        </group>
+    </open-files>
+</project-private>
