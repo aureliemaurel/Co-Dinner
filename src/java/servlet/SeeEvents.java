@@ -5,9 +5,7 @@
  */
 package servlet;
 
-import bean.User;
 import dao.DAOFactory;
-import forms.RegisterFormChecker;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,10 +18,28 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author stag
  */
-@WebServlet(name = "SeeEvent", urlPatterns = {"/seeEvent"})
-public class SeeEvent extends HttpServlet {
+@WebServlet(name = "SeeEvents", urlPatterns = {"/seeEvents"})
+public class SeeEvents extends HttpServlet {
 
-  /**
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        request.setAttribute("participants", DAOFactory.getParticipantDAO().all());
+        getServletContext()
+                .getRequestDispatcher("/WEB-INF/seeEvent.jsp")
+                .forward(request, response);
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -34,9 +50,7 @@ public class SeeEvent extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       getServletContext()
-                .getRequestDispatcher("/WEB-INF/seeEvent.jsp")
-                .forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -50,20 +64,7 @@ public class SeeEvent extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                request.setCharacterEncoding("UTF-8");
-        RegisterFormChecker checker = new RegisterFormChecker(request);
-        User user = checker.check();
-        if (checker.getErrors().isEmpty()) {
-            // L'inscription est valide => utilisateur en session
-            request.getSession().setAttribute("user", user);
-            // et utilisateur en DB !
-            DAOFactory.getUserDAO().create(user);
-        } else {
-            request.getSession().invalidate();
-        }
-        getServletContext()
-                .getRequestDispatcher("/WEB-INF/seeEvent.jsp")
-                .forward(request, response);
+        processRequest(request, response);
     }
 
     /**

@@ -10,7 +10,7 @@ public class DAOFactory {
         return new UserDAO();
     }
 
-    public static ParticipantDAO getArticleDAO() {
+    public static ParticipantDAO getParticipantDAO() {
         return new ParticipantDAO();
     }
 }

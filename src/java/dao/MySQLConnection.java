@@ -22,10 +22,10 @@ public final class MySQLConnection {
        
         if (connection == null) {
              //variable locale à la fonction getConnection() qui permet de récupérer la conncetion à la base de donnée
-        String login = "Blog";
-        String password = "12345";
-        String host = "localhost";
-        String database = "Blog";
+        String login = "groupe04";
+        String password = "P7O/WOBPVoKTY";
+        String host = "wp.ldnr.fr";
+        String database = "groupe04";
         int port = 3306;
         String driver = "mysql";
         
