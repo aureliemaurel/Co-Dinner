@@ -10,6 +10,7 @@ import java.io.Serializable;
 public class Food implements Serializable, Identifiable {
 
     private static final long serialVersionUID = 1L;
+    
 
     private Long id_food;
     private Long nb_entree;
