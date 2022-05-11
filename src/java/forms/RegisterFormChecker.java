@@ -1,14 +1,16 @@
 package forms;
 
-import forms.FormChecker;
-import bean.User;
+import Beans.Event;
+import Beans.Guest;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 /**
  *
- * @author Herbert Caffarel
+ * @author stag
  */
-public class RegisterFormChecker extends FormChecker {
+public class RegisterFormChecker extends FormChecker<Guest> {
 
     //constructeur avec paramètre de la requête
     public RegisterFormChecker(HttpServletRequest request) {
@@ -17,20 +19,27 @@ public class RegisterFormChecker extends FormChecker {
     
     //fonction check() pour vérifier les champs saisis sont valides
     @Override
-    public User check() {
+    public Guest check() {
         
+        Map<String, String> msgMap = new HashMap<>();
         //Variables qui permettent de récupérer les paramètres saisi par l'utilsateur dans l'objet requête qui contient les paramètres "email, "password" "confirm" et "pseudo"
         String email = request.getParameter("email");
         String pwd = request.getParameter("pwd");
         String confirm = request.getParameter("confirm");
         String pseudo = request.getParameter("pseudo");
+        String tel = request.getParameter("tel");
+        String name = request.getParameter("name");
+        String first_name = request.getParameter("first_name");
         
         // crétaion d'un nouvel obbjet user (classe user qui est un bean (modèle objet utilisateur)
-        User user = new User();
+        Guest user = new Guest();
         
         user.setEmail(email); 
         user.setPseudo(pseudo);
         user.setPwd(pwd);
+        user.setTel(tel);
+        user.setName(name);
+        user.setFirst_name(first_name);
         request.setAttribute("user", user);
         
         // try catch pour envoyer message d'errreur si les champs ne sont pas valides
@@ -75,4 +84,5 @@ public class RegisterFormChecker extends FormChecker {
             throw new Exception("Mot de passe et confirmation ne sont pas identiques.");
         }
     }
+    
 }

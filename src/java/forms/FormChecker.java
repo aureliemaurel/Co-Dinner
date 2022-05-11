@@ -1,15 +1,16 @@
 package forms;
 
-import bean.User;
+import Beans.Event;
+import Beans.Guest;
 import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * Classe mère de vérification des formulaires.
  *
- * @author Herbert Caffarel
+ * @author stag
  */
-public abstract class FormChecker {
+public abstract class FormChecker<T> {
 
     protected HttpServletRequest request;
     protected HashMap<String, String> errors;
@@ -23,7 +24,7 @@ public abstract class FormChecker {
      * Vérification du formulaire.
      * @return 
      */
-    protected abstract User check();
+    public abstract T check();
 
     /*
      * Les différentes méthodes de vérifications de bases.

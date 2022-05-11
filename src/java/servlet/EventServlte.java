@@ -5,8 +5,10 @@
  */
 package servlet;
 
+import Beans.Event;
+import DAO.DAOFactory;
+import forms.EventFormCheker;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,37 +19,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author stag
  */
-@WebServlet(name = "CreateEvent", urlPatterns = {"/createEvent"})
-public class CreateEvent extends HttpServlet {
+@WebServlet(name = "Event", urlPatterns = {"/event"})
+public class EventServlte extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CreateEvent</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CreateEvent at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
+ /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -58,7 +33,9 @@ public class CreateEvent extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        getServletContext()
+                .getRequestDispatcher("/WEB-INF/event.jsp")
+                .forward(request, response);
     }
 
     /**
@@ -72,7 +49,21 @@ public class CreateEvent extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.setCharacterEncoding("UTF-8");
+        EventFormCheker checker = new EventFormCheker(request);
+        Event event = checker.check();
+     
+        if (checker.getErrors().isEmpty()) {
+            // L'inscription est valide => utilisateur en session
+            //request.getSession().setAttribute("event", event);
+            // et utilisateur en DB !
+            DAOFactory.getEventDAO().create(event);
+        } else {
+            request.getSession().invalidate();
+        }
+        getServletContext()
+                .getRequestDispatcher("/WEB-INF/event.jsp")
+                .forward(request, response);
     }
 
     /**

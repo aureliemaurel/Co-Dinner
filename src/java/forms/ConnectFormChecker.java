@@ -1,9 +1,10 @@
 package forms;
 
-import dao.DAOFactory;
-import dao.UserDAO;
+import Beans.Event;
+import DAO.DAOFactory;
+import DAO.GuestDAO;
 import forms.FormChecker;
-import bean.User;
+import Beans.Guest;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -11,9 +12,9 @@ import javax.servlet.http.HttpSession;
 
 
  
-public class ConnectFormChecker extends FormChecker {
+public class ConnectFormChecker extends FormChecker<Guest> {
     
-    private final int MIN_PWD_SIZE = 3; //création de variables globales
+    private final int MIN_PWD_SIZE = 3; 
     private final int MAX_PWD_SIZE = 24;
 
 
@@ -22,17 +23,16 @@ public class ConnectFormChecker extends FormChecker {
     }
 
     @Override
-    public User check() {
+    public Guest check() {
         
-        //Variables 
         String email = request.getParameter("email");
         String pwd = request.getParameter("pwd");
         //création d'un nouvel utilisateur
-        User user = new User();
+        Guest user = new Guest();
         user.setEmail(email); // on récupère le mail et le password
         user.setPwd(pwd);
         
-        request.setAttribute("user", user);//
+        request.setAttribute("user", user);
         
         try {
             mandatoryField(email); // vérif du mail
@@ -49,10 +49,10 @@ public class ConnectFormChecker extends FormChecker {
         }
         request.setAttribute("errors", errors);
         
-        //rajout de vértification entre le mot de passe de la BBD et le mot de passe saisi par l'utilisateur
+        //rajout de vértification entre le mot de passe de la BD et le mot de passe saisi par l'utilisateur
         if (errors.isEmpty()) {
             String message = "";
-            User fromDb = DAOFactory.getUserDAO().find(user.getEmail());
+            Guest fromDb = DAOFactory.getGuestDAO().find(user.getEmail());
             if (fromDb == null) {
                 message = "Utilisateur inconnu";
                 request.getSession().invalidate();
@@ -70,5 +70,6 @@ public class ConnectFormChecker extends FormChecker {
         }
         return user;
     }
+
 
 }

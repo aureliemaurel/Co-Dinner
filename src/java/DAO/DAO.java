@@ -1,4 +1,4 @@
-package dao;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,8 +17,9 @@ public abstract class DAO<T extends Identifiable> {
     Connection connection;
     protected String table;
 
-    public DAO() {
+   public DAO(String table) {
         this.connection = MySQLConnection.getConnection();
+        this.table = table;
     }
 
     /**
@@ -42,7 +43,7 @@ public abstract class DAO<T extends Identifiable> {
             pstmt.setLong(1, obj.getId());
             int nbLines = pstmt.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GuestDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
