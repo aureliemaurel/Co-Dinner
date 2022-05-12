@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulaire pour entrer les plats amenés</title>
 
-        <link rel="stylesheet" href="<c:url value='/rsc/css/form.css'/>">
+       <link rel="stylesheet" href="<c:url value='/rsc/css/form.css'/>">
     </head>
     <body>
         <%@include file="./jspf/header.jspf" %>

@@ -10,12 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ShowEvents</title>
+        <link rel="stylesheet" href="<c:url value='/rsc/css/form.css'/>">
     </head>
     <body>
         <%@include file="./jspf/header.jspf" %>
         <main>
             <h2>Liste Events, Participants et Foods</h2>
-            
+
             <h3>liste des Events</h3>
             <c:forEach var="event" items="${requestScope.events}" varStatus="status">
 
@@ -25,18 +26,18 @@
             </c:forEach>
 
 
-                <h3>liste des Participants</h3>
+            <h3>liste des Participants</h3>
             <c:forEach var="guest" items="${requestScope.users}" varStatus="status">
 
                 <h3>${status.count}. ${pageScope.guest.name} </h3>
 
             </c:forEach>
-                
-                <h3>liste des Foods</h3>
+
+            <h3>liste des Foods</h3>
             <c:forEach var="food" items="${requestScope.foods}" varStatus="status">
 
-                <h3>${status.count}.on a pour entree:  ${pageScope.food.entree} et le Boisson y a que:  ${pageScope.food.boisson} </h3>
-
+                <h3>${status.count}.on a pour entree:  ${pageScope.food.entree} ${pageScope.food.plat} TO DO ${pageScope.food.dessert} et le Boisson y a que:  ${pageScope.food.boisson} </h3>
+                
             </c:forEach>
 
 
