@@ -13,7 +13,7 @@ public class Food implements Serializable, Identifiable {
     
 
     private Long id_food;
-    private Long nb_entree;
+    private int nb_entree;
     private Long nb_plat;
     private Long nb_dessert;
     private Long nb_boisson;
@@ -23,6 +23,24 @@ public class Food implements Serializable, Identifiable {
     private String dessert;
     private String boisson;
     private String remarque;
+    
+     public void setNb_entree(String nb_entree) {
+       setNb_entree(Integer.valueOf(nb_entree));
+    }
+     public void setNb_plat(String nb_plat) {
+       setNb_plat(Long.valueOf(nb_plat));
+    }
+     public void setNb_dessert(String nb_dessert) {
+       setNb_dessert(Long.valueOf(nb_dessert));
+    }
+     public void setNb_boisson(String nb_boisson) {
+       setNb_boisson(Long.valueOf(nb_boisson));
+    }
+     public void setNbparticipant(String nbparticipant) {
+       setNbparticipant(Long.valueOf(nbparticipant));
+    }
+     
+     
     
     
 
@@ -39,11 +57,11 @@ public class Food implements Serializable, Identifiable {
         this.id_food = id_food;
     }
 
-    public Long getNb_entree() {
+    public int getNb_entree() {
         return nb_entree;
     }
 
-    public void setNb_entree(Long nb_entree) {
+    public void setNb_entree(int nb_entree) {
         this.nb_entree = nb_entree;
     }
 
@@ -140,3 +158,4 @@ public class Food implements Serializable, Identifiable {
     
 
 }
+
