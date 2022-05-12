@@ -19,8 +19,6 @@
             <h1> Bienvenue sur Co-Dinner !</h1>
             <h4>L'application pour organiser vos repas de partage.</h4>
 
-            <a href="<c:url value='/connect'/>" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Connexion</a>
-            <a href="<c:url value='/register'/>" class="btn btn-primary btn-lg disabled" role="button" aria-disabled="true">Inscription</a>
            
 
 
