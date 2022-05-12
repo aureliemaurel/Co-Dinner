@@ -32,7 +32,6 @@
 
             </c:forEach>
                 
-                
                 <h3>liste des Foods</h3>
             <c:forEach var="food" items="${requestScope.foods}" varStatus="status">
 
