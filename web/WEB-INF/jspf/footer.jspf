@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <footer>
-    <div>Générated by JEE - &copy;Moâ</div>
+    <div>Générated by AEAES - &copy;2022</div>
     <div>
         <c:if test="${!empty sessionScope.user}">
             Vous êtes connecté avec l'adresse courriel ${sessionScope.user.email}
