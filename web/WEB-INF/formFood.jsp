@@ -27,7 +27,7 @@
                     </div>
                     <div>
                         <label for="plat">Un plat ?</label>
-                        <input type="text" id="plat" name="plat" value="<c:out value="${requestScope.food.plat}"/>">
+                        <input type="text" id="plat" name="plat" value="<c:out value="${pageScope.food.plat}"/>">
                         <%--<span class="error">${requestScope.errors.email}</span>--%>
                     </div>
                     <div>

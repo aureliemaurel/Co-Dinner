@@ -52,19 +52,24 @@ public class FormFood extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        FoodCheck checker = new FoodCheck(request);
-        Food food = checker.check();
-     
-        if (checker.getErrors().isEmpty()) {
-           
-            DAOFactory.getFoodDAO().create(food);
-        } else {
-            request.getSession().invalidate();
-        }
+        
+        request.setAttribute("foods", DAOFactory.getFoodDAO().all());
         getServletContext()
                 .getRequestDispatcher("/WEB-INF/formFood.jsp")
                 .forward(request, response);
+//        request.setCharacterEncoding("UTF-8");
+//        FoodCheck checker = new FoodCheck(request);
+//        Food food = checker.check();
+//     
+//        if (checker.getErrors().isEmpty()) {
+//           
+//            DAOFactory.getFoodDAO().create(food);
+//        } else {
+//            request.getSession().invalidate();
+//        }
+//        getServletContext()
+//                .getRequestDispatcher("/WEB-INF/formFood.jsp")
+//                .forward(request, response);
     }
 
     /**
