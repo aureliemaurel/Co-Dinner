@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Formulaire pour entrer les plats amenés</title>
-        <link rel="stylesheet" href="<c:url value='/rsc/css/style.css'/>">
+
         <link rel="stylesheet" href="<c:url value='/rsc/css/form.css'/>">
     </head>
     <body>
@@ -23,13 +23,29 @@
                     <div>
                         <label for="entree">Une entrée ?</label>
                         <input type="text" id="entree" name="entree" value="<c:out value="${requestScope.food.entree}"/>">
-                        <%--<span class="error">${requestScope.errors.email}</span>--%>
+
                     </div>
                     <div>
                         <label for="plat">Un plat ?</label>
-                        <input type="text" id="plat" name="plat" value="<c:out value="${pageScope.food.plat}"/>">
-                        <%--<span class="error">${requestScope.errors.email}</span>--%>
+                        <input type="text" id="plat" name="plat" value="<c:out value="${requestScope.food.plat}"/>">
+
                     </div>
+                    <div>
+                        <label for="dessert">Un dessert ?</label>
+                        <input type="text" id="dessert" name="dessert" value="<c:out value="${requestScope.food.dessert}"/>">
+
+                    </div>
+                    <div>
+                        <label for="boisson">Un Boisson ?</label>
+                        <input type="text" id="boisson" name="boisson" value="<c:out value="${requestScope.food.boisson}"/>">
+
+                    </div>
+                    <div>
+                        <label for="remarque">Vos remarque !!!</label>
+                        <input type="text" id="remarque" name="remarque" value="<c:out value="${requestScope.food.remarque}"/>">
+
+                    </div>
+
                     <div>
                         <input type="submit" value="Envoyer">
                     </div>

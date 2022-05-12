@@ -35,16 +35,18 @@ public class FoodDAO extends DAO<Food> {
             if (rs.first()) { // L'utilisateur a été trouvé dans la DB
                 // => hydratation du bean
                 food = new Food();
-                food.setNbparticipant(rs.getLong("nbparticipant"));
                 food.setEntree(rs.getString("entree"));
-                food.setNb_entree(rs.getInt("nb_entree"));
                 food.setPlat(rs.getString("plat"));
-                food.setNb_plat(rs.getLong("nb_plat"));
                 food.setDessert(rs.getString("dessert"));
-                food.setNb_dessert(rs.getLong("nb_dessert"));
                 food.setBoisson(rs.getString("boisson"));
-                food.setNb_boisson(rs.getLong("nb_boisson"));
                 food.setRemarque(rs.getString("remarque"));
+                
+//                food.setNbparticipant(rs.getLong("nbparticipant"));
+//                food.setNb_entree(rs.getInt("nb_entree"));
+//                food.setNb_plat(rs.getLong("nb_plat"));
+//                food.setNb_dessert(rs.getLong("nb_dessert"));
+//                food.setNb_boisson(rs.getLong("nb_boisson"));
+                
                 food.setId_food(id);
             }
         } catch (SQLException ex) {
@@ -55,20 +57,21 @@ public class FoodDAO extends DAO<Food> {
 
     @Override
     public void update(Food obj) {
-        String sql = "UPDATE " + table + " SET entree=?, nb_entree=?, plat=?, nb_plat=?"
-                + " dessert=?, nb_dessert=?, boisson=?, nb_boisson=?, nbparticipant=?, remarque=? WHERE id=?";
+        String sql = "UPDATE " + table + " SET entree=?,  plat=?, dessert=?,  boisson=?,   remarque=? WHERE id=?";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql);
             pstmt.setString(1, obj.getEntree());
-            pstmt.setLong(2, obj.getNb_entree());
-            pstmt.setString(3, obj.getPlat());
-            pstmt.setLong(4, obj.getNb_plat());
-            pstmt.setString(5, obj.getDessert());
-            pstmt.setLong(6, obj.getNb_dessert());
-            pstmt.setString(7, obj.getBoisson());
-            pstmt.setLong(8, obj.getNb_boisson());
-            pstmt.setLong(9, obj.getNbparticipant());
-            pstmt.setString(10, obj.getRemarque());
+            pstmt.setString(2, obj.getPlat());
+            pstmt.setString(3, obj.getDessert());
+            pstmt.setString(4, obj.getBoisson());
+            pstmt.setString(5, obj.getRemarque());
+            
+//            pstmt.setLong(2, obj.getNb_entree());
+//            pstmt.setLong(4, obj.getNb_plat());
+//            pstmt.setLong(6, obj.getNb_dessert());
+//            pstmt.setLong(8, obj.getNb_boisson());
+//            pstmt.setLong(9, obj.getNbparticipant());
+            
             int nbLines = pstmt.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(FoodDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,21 +80,21 @@ public class FoodDAO extends DAO<Food> {
 
     @Override
     public void create(Food obj) {
-        String sql = "INSERT INTO " + table + " (entree, plat, nb_plat, dessert"
-                + " nb_dessert, boisson, nb_boisson, nbparticipant, remarque)"
-                + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO " + table + " (entree, plat, dessert,  boisson, remarque) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement pstmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, obj.getEntree());
-            pstmt.setLong(2, obj.getNb_entree());
-            pstmt.setString(3, obj.getPlat());
-            pstmt.setLong(4, obj.getNb_plat());
-            pstmt.setString(5, obj.getDessert());
-            pstmt.setLong(6, obj.getNb_dessert());
-            pstmt.setString(7, obj.getBoisson());
-            pstmt.setLong(8, obj.getNb_boisson());
-            pstmt.setLong(9, obj.getNbparticipant());
-            pstmt.setString(10, obj.getRemarque());
+            pstmt.setString(2, obj.getPlat());
+            pstmt.setString(3, obj.getDessert());
+            pstmt.setString(4, obj.getBoisson());
+            pstmt.setString(5, obj.getRemarque());
+            
+//             pstmt.setLong(2, obj.getNb_entree());
+//            pstmt.setLong(3, obj.getNb_plat());
+//            pstmt.setLong(5, obj.getNb_dessert());
+//            pstmt.setLong(7, obj.getNb_boisson());
+//            pstmt.setLong(8, obj.getNbparticipant());
+            
             int nbLines = pstmt.executeUpdate();
             if (nbLines == 1) {
                 ResultSet keys = pstmt.getGeneratedKeys();
@@ -116,15 +119,17 @@ public class FoodDAO extends DAO<Food> {
                 Food food = new Food();
                 food.setId_food(rs.getLong("id_food"));
                 food.setEntree(rs.getString("entree"));
-                food.setNb_entree(rs.getInt("nb_entree"));
                 food.setPlat(rs.getString("plat"));
-                food.setNb_plat(rs.getLong("nb_plat"));
                 food.setDessert(rs.getString("dessert"));
-                food.setNb_dessert(rs.getLong("nb_dessert"));
                 food.setBoisson(rs.getString("boisson"));
-                food.setNb_boisson(rs.getLong("nb_boisson"));
-                food.setNbparticipant(rs.getLong("nbparticipant"));
                 food.setRemarque(rs.getString("remarque"));
+                
+//                food.setNb_entree(rs.getInt("nb_entree"));
+//                food.setNb_plat(rs.getLong("nb_plat"));
+//                food.setNb_dessert(rs.getLong("nb_dessert"));
+//                food.setNb_boisson(rs.getLong("nb_boisson"));
+//                food.setNbparticipant(rs.getLong("nbparticipant"));
+
                 // On l'ajoute à la liste
                 foods.add(food);
             }

@@ -13,32 +13,32 @@ public class Food implements Serializable, Identifiable {
     
 
     private Long id_food;
-    private int nb_entree;
-    private Long nb_plat;
-    private Long nb_dessert;
-    private Long nb_boisson;
-    private Long nbparticipant;
+//    private int nb_entree;
+//    private Long nb_plat;
+//    private Long nb_dessert;
+//    private Long nb_boisson;
+//    private Long nbparticipant;
     private String entree;
     private String plat;
     private String dessert;
     private String boisson;
     private String remarque;
     
-     public void setNb_entree(String nb_entree) {
-       setNb_entree(Integer.valueOf(nb_entree));
-    }
-     public void setNb_plat(String nb_plat) {
-       setNb_plat(Long.valueOf(nb_plat));
-    }
-     public void setNb_dessert(String nb_dessert) {
-       setNb_dessert(Long.valueOf(nb_dessert));
-    }
-     public void setNb_boisson(String nb_boisson) {
-       setNb_boisson(Long.valueOf(nb_boisson));
-    }
-     public void setNbparticipant(String nbparticipant) {
-       setNbparticipant(Long.valueOf(nbparticipant));
-    }
+//     public void setNb_entree(String nb_entree) {
+//       setNb_entree(Integer.valueOf(nb_entree));
+//    }
+//     public void setNb_plat(String nb_plat) {
+//       setNb_plat(Long.valueOf(nb_plat));
+//    }
+//     public void setNb_dessert(String nb_dessert) {
+//       setNb_dessert(Long.valueOf(nb_dessert));
+//    }
+//     public void setNb_boisson(String nb_boisson) {
+//       setNb_boisson(Long.valueOf(nb_boisson));
+//    }
+//     public void setNbparticipant(String nbparticipant) {
+//       setNbparticipant(Long.valueOf(nbparticipant));
+//    }
      
      
     
@@ -56,46 +56,46 @@ public class Food implements Serializable, Identifiable {
     public void setId_food(Long id_food) {
         this.id_food = id_food;
     }
-
-    public int getNb_entree() {
-        return nb_entree;
-    }
-
-    public void setNb_entree(int nb_entree) {
-        this.nb_entree = nb_entree;
-    }
-
-    public Long getNb_plat() {
-        return nb_plat;
-    }
-
-    public void setNb_plat(Long nb_plat) {
-        this.nb_plat = nb_plat;
-    }
-
-    public Long getNb_dessert() {
-        return nb_dessert;
-    }
-
-    public void setNb_dessert(Long nb_dessert) {
-        this.nb_dessert = nb_dessert;
-    }
-
-    public Long getNb_boisson() {
-        return nb_boisson;
-    }
-
-    public void setNb_boisson(Long nb_boisson) {
-        this.nb_boisson = nb_boisson;
-    }
-
-    public Long getNbparticipant() {
-        return nbparticipant;
-    }
-
-    public void setNbparticipant(Long nbparticipant) {
-        this.nbparticipant = nbparticipant;
-    }
+//
+//    public int getNb_entree() {
+//        return nb_entree;
+//    }
+//
+//    public void setNb_entree(int nb_entree) {
+//        this.nb_entree = nb_entree;
+//    }
+//
+//    public Long getNb_plat() {
+//        return nb_plat;
+//    }
+//
+//    public void setNb_plat(Long nb_plat) {
+//        this.nb_plat = nb_plat;
+//    }
+//
+//    public Long getNb_dessert() {
+//        return nb_dessert;
+//    }
+//
+//    public void setNb_dessert(Long nb_dessert) {
+//        this.nb_dessert = nb_dessert;
+//    }
+//
+//    public Long getNb_boisson() {
+//        return nb_boisson;
+//    }
+//
+//    public void setNb_boisson(Long nb_boisson) {
+//        this.nb_boisson = nb_boisson;
+//    }
+//
+//    public Long getNbparticipant() {
+//        return nbparticipant;
+//    }
+//
+//    public void setNbparticipant(Long nbparticipant) {
+//        this.nbparticipant = nbparticipant;
+//    }
 
     public String getEntree() {
         return entree;
@@ -141,11 +141,11 @@ public class Food implements Serializable, Identifiable {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Food{id_food=").append(id_food);
-        sb.append(", nb_entree=").append(nb_entree);
-        sb.append(", nb_plat=").append(nb_plat);
-        sb.append(", nb_dessert=").append(nb_dessert);
-        sb.append(", nb_boisson=").append(nb_boisson);
-        sb.append(", nbparticipant=").append(nbparticipant);
+//        sb.append(", nb_entree=").append(nb_entree);
+//        sb.append(", nb_plat=").append(nb_plat);
+//        sb.append(", nb_dessert=").append(nb_dessert);
+//        sb.append(", nb_boisson=").append(nb_boisson);
+//        sb.append(", nbparticipant=").append(nbparticipant);
         sb.append(", entree=").append(entree);
         sb.append(", plat=").append(plat);
         sb.append(", dessert=").append(dessert);

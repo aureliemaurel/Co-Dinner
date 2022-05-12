@@ -17,11 +17,11 @@
             <h2>Voici nos events</h2>
             <c:forEach var="event" items="${requestScope.events}" varStatus="status">
                 
-                <events>
+               
                     <h3>${status.count}. ${pageScope.event.titre}</h3>
                     <div>Event créé le ${pageScope.event.date_event} chez ${pageScope.event.lieu}</div>
                     
-                </events>
+               
             </c:forEach>
         </main>
         <%@include file="./jspf/footer.jspf" %>

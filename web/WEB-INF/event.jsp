@@ -23,25 +23,23 @@
                 <fieldset>
                     <legend>Event</legend>
 
-                    <div class="form-row">
-                      
-                    </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer01">Titre</label>
-                            <input type="text" class="form-control is-valid" id="validationServer01" name="titre"
+                    <div>
+                        <div >
+                            <label for="titre">Titre</label>
+                            <input type="text" id="titre" name="titre"
                                    placeholder="Titre" value="<c:out value="${requestScope.event.titre}"/>" required>
                            <br><br>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">Lieu</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" name="lieu"
+                        <div>
+                            <label for="lieu">Lieu</label>
+                            <input type="text"  id="lieu" name="lieu"
                                    placeholder="Lieu" value="<c:out value="${requestScope.event.lieu}"/>" required>
                             <br><br>
                         </div>
-                        <div class="col-md-4 mb-3">
-                            <label for="validationServer02">Date</label>
-                            <input type="text" class="form-control is-valid" id="validationServer03" name="date_event"
-                                   placeholder="JJ/MM/AAAA" value="<c:out value="${requestScope.event.date_event}"/>" required>
+                        <div>
+                            <label for="date_event">Date</label>
+                            <input type="text"  id="date_event" name="date_event"
+                                   placeholder="AAAA-MM-JJ" value="<c:out value="${requestScope.event.date_event}"/>" required>
                         <br><br>
                         </div>
                     </div>

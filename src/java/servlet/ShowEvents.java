@@ -5,10 +5,9 @@
  */
 package servlet;
 
-
-import Beans.Food;
+import Beans.Event;
 import DAO.DAOFactory;
-import forms.FoodCheck;
+import forms.EventFormCheker;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,10 +20,31 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author stag
  */
-@WebServlet(name = "FormFood", urlPatterns = {"/formFood"})
-public class FormFood extends HttpServlet {
+@WebServlet(name = "ShowEvents", urlPatterns = {"/showevents"})
+public class ShowEvents extends HttpServlet {
 
-   /**
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        request.setAttribute("events", DAOFactory.getEventDAO().all());
+        request.setAttribute("users", DAOFactory.getGuestDAO().all());
+        request.setAttribute("foods", DAOFactory.getFoodDAO().all());
+        getServletContext()
+                .getRequestDispatcher("/WEB-INF/showevents.jsp")
+                .forward(request, response);
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -35,10 +55,7 @@ public class FormFood extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext()
-                .getRequestDispatcher("/WEB-INF/formFood.jsp")
-                .forward(request, response);
-        
+    processRequest(request, response);
     }
 
     /**
@@ -52,20 +69,7 @@ public class FormFood extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        request.setCharacterEncoding("UTF-8");
-        FoodCheck checker = new FoodCheck(request);
-        Food food = checker.check();
-     
-        if (checker.getErrors().isEmpty()) {
-           
-            DAOFactory.getFoodDAO().create(food);
-        } else {
-            request.getSession().invalidate();
-        }
-        getServletContext()
-                .getRequestDispatcher("/WEB-INF/formFood.jsp")
-                .forward(request, response);
+       processRequest(request, response);
     }
 
     /**
